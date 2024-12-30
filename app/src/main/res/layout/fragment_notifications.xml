@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.techeytech.followme.base.BaseCallback" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            app:callback="@{callback}" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/bg_rounded_primary_border"
+            android:orientation="horizontal"
+            android:padding="@dimen/_1sdp">
+
+            <RadioButton
+                android:id="@+id/rb_inbox"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_inbox_selector"
+                android:button="@null"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:padding="@dimen/_9sdp"
+                android:text="@string/inbox"
+                android:textColor="@drawable/black_white_text_selector" />
+
+            <RadioButton
+                android:id="@+id/rb_notifications"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_notifications_selector"
+                android:button="@null"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:padding="@dimen/_9sdp"
+                android:checked="true"
+                android:text="@string/notifications"
+                android:textColor="@drawable/black_white_text_selector" />
+
+        </RadioGroup>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                shimmer:duration="800">
+
+                <!-- Adding many rows of placeholders -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/item_view_notification_placeholder" />
+
+                    <include layout="@layout/item_view_notification_placeholder" />
+
+                    <include layout="@layout/item_view_notification_placeholder" />
+
+                    <include layout="@layout/item_view_notification_placeholder" />
+
+                    <include layout="@layout/item_view_notification_placeholder" />
+
+                    <include layout="@layout/item_view_notification_placeholder" />
+
+                </LinearLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_feeds"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:overScrollMode="never" />
+
+            <TextView
+                android:id="@+id/text_no_data"
+                style="@style/CustomTextViewMedium"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/no_data_found" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

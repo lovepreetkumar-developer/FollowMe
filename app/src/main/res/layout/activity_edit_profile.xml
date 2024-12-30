@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.techeytech.followme.base.BaseCallback" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            card_view:callback="@{callback}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/_15sdp">
+
+                <RelativeLayout
+                    android:id="@+id/relative_profile_pic"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:onClick="@{(v)->callback.onClick(v)}">
+
+                    <ImageView
+                        android:id="@+id/image_profile"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:background="@drawable/ic_circle"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/image_profile_circle"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/image_edit_profile"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:src="@drawable/ic_edit"
+                        tools:ignore="ContentDescription" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/edit_text_first_name"
+                            style="@style/CustomEditText"
+                            android:layout_toStartOf="@+id/image_first_name"
+                            android:hint="@string/first_name"
+                            android:inputType="textPersonName"
+                            android:lines="1"
+                            tools:ignore="Autofill" />
+
+                        <ImageView
+                            android:id="@+id/image_first_name"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_user"
+                            tools:ignore="ContentDescription" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@color/black" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <EditText
+                            android:id="@+id/edit_text_last_name"
+                            style="@style/CustomEditText"
+                            android:layout_toStartOf="@+id/image_last_name"
+                            android:hint="@string/last_name"
+                            android:inputType="textPersonName"
+                            android:lines="1"
+                            tools:ignore="Autofill" />
+
+                        <ImageView
+                            android:id="@+id/image_last_name"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_user"
+                            tools:ignore="ContentDescription" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@color/black" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <EditText
+                            android:id="@+id/edit_text_email"
+                            style="@style/CustomEditText"
+                            android:layout_toStartOf="@+id/image_email"
+                            android:hint="@string/email_address"
+                            android:inputType="textEmailAddress"
+                            android:lines="1"
+                            tools:ignore="Autofill" />
+
+                        <ImageView
+                            android:id="@+id/image_email"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_email"
+                            tools:ignore="ContentDescription" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/text_header"
+                        style="@style/CustomTextViewMedium"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="@string/choose_your_profile" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_interest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp" />
+
+                    <Button
+                        android:id="@+id/button_save"
+                        style="@style/CustomButton"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:onClick="@{(v)->callback.onClick(v)}"
+                        android:text="@string/save" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

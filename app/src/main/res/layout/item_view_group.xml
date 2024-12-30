@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.techeytech.followme.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="bean"
+            type="com.techeytech.followme.beans.SettingMenuBean" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{bean.selected?@color/gray_light_one:@color/white}"
+        android:onClick="@{(v)->callback.onClick(v,bean)}"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/image_user"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/image_profile_circle"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/image_user"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/CustomTextViewRegular"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:text="Friends Forever" />
+
+                <TextView
+                    style="@style/CustomTextViewRegular"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="12 Nov 2019"
+                    android:textColor="@color/gray_light_two"
+                    android:textSize="@dimen/_10sdp"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_success_green"
+                android:visibility="@{bean.selected?View.VISIBLE:View.GONE}"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/view_placeholder_bg_color" />
+
+    </LinearLayout>
+
+</layout>

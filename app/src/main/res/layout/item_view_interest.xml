@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.techeytech.followme.base.SimpleRecyclerViewAdapter.SimpleCallback" />
+
+        <variable
+            name="bean"
+            type="com.techeytech.followme.beans.InterestBean" />
+
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:onClick="@{(v)->callback.onClick(v,bean)}"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            style="@style/CustomTextViewRegular"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{bean.name}" />
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@{bean.selected?@drawable/ic_success:@drawable/ic_circle}"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+</layout>
+

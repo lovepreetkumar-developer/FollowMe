@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.techeytech.followme.base.BaseCallback" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            app:callback="@{callback}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_location"
+                android:src="@drawable/ic_loc_marker_circle"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/_2sdp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/CustomTextViewRegular"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/image_location"
+                android:singleLine="true"
+                android:text="@string/share_location" />
+
+            <CheckBox
+                android:id="@+id/checkbox_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:button="@drawable/ic_switch_active" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_notification"
+                android:src="@drawable/ic_bell_black"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_centerVertical="true"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                style="@style/CustomTextViewRegular"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toEndOf="@+id/image_notification"
+                android:singleLine="true"
+                android:text="@string/notifications" />
+
+            <CheckBox
+                android:id="@+id/checkbox_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_alignParentEnd="true"
+                android:button="@drawable/ic_switch_inactive" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>
+

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.techeytech.followme.base.BaseCallback" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_app_logo"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:src="@drawable/image_app_logo"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_350sdp"
+                android:layout_alignParentBottom="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/auth_screens_back"
+                tools:ignore="ContentDescription" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_350sdp"
+                android:layout_below="@+id/image_app_logo"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                card_view:cardCornerRadius="@dimen/_15sdp"
+                card_view:cardElevation="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_20sdp">
+
+                    <TextView
+                        android:id="@+id/text_header"
+                        style="@style/CustomTextViewMedium"
+                        android:text="@string/choose_your_profile"
+                        android:layout_centerHorizontal="true"/>
+
+                    <RadioGroup
+                        android:id="@+id/radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_below="@+id/text_header">
+
+                        <RadioButton
+                            android:id="@+id/radio_personal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:text="@string/personal_profile"
+                            android:buttonTint="@color/blue_primary"
+                            tools:targetApi="lollipop" />
+
+                        <RadioButton
+                            android:id="@+id/radio_business"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:paddingEnd="@dimen/_10sdp"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:text="@string/business_profile"
+                            android:buttonTint="@color/blue_primary"
+                            tools:targetApi="lollipop" />
+
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/text_note"
+                        android:layout_below="@+id/radio_group"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        style="@style/CustomTextViewRegular"
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/gray_light_two"
+                        android:text="@string/choose_business_profile_if_you_want_to_advertise_your_business_on_follow_me"
+                        android:layout_centerHorizontal="true"/>
+
+                    <Button
+                        android:id="@+id/button_next"
+                        style="@style/CustomButton"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:onClick="@{(v)->callback.onClick(v)}"
+                        android:text="@string/next" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/text_login"
+                style="@style/CustomTextViewRegular"
+                android:text="@string/already_have_an_account_login"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</layout>
